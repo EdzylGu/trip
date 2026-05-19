@@ -21,6 +21,7 @@
 
   * { box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
   html, body {
     margin: 0;
     padding: 0;
@@ -51,7 +52,6 @@
     align-items: end;
     gap: 24px;
   }
-
   .mast-left, .mast-right {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -71,12 +71,6 @@
     color: var(--red);
     text-align: center;
     font-style: italic;
-  }
-  .logo .ampersand {
-    color: var(--ink);
-    font-size: 0.6em;
-    margin: 0 0.1em;
-    vertical-align: 0.05em;
   }
 
   .sub-mast {
@@ -101,7 +95,6 @@
     align-items: end;
     border-bottom: 1px solid var(--ink);
   }
-
   .cover h1 {
     margin: 0;
     font-family: 'Noto Serif TC', serif;
@@ -148,6 +141,7 @@
   /* ===== Section Heading ===== */
   .section {
     padding: 60px 0 20px;
+    scroll-margin-top: 24px;
   }
   .section-head {
     display: grid;
@@ -204,12 +198,11 @@
     padding: 22px 24px 24px;
     position: relative;
     box-shadow: 4px 4px 0 var(--ink);
+    scroll-margin-top: 24px;
   }
-
   .card .corner {
     position: absolute;
-    top: -12px;
-    left: -12px;
+    top: -12px; left: -12px;
     background: var(--red);
     color: #fff;
     font-family: 'Bodoni Moda', serif;
@@ -218,12 +211,9 @@
     font-size: 18px;
     width: 36px; height: 36px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     border: 1.5px solid var(--ink);
   }
-
   .card .kicker {
     font-family: 'Bodoni Moda', serif;
     font-style: italic;
@@ -286,9 +276,7 @@
     font-weight: 500;
     color: var(--ink);
   }
-  .meta-list .v strong {
-    font-weight: 900;
-  }
+  .meta-list .v strong { font-weight: 900; }
 
   /* ===== Full Day Card ===== */
   .card.full-day {
@@ -329,8 +317,8 @@
     margin-bottom: 6px;
   }
   .card.full-day h3 {
-    font-size: clamp(40px, 5.4vw, 64px);
-    line-height: 1;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1.05;
     margin-bottom: 14px;
     letter-spacing: 0;
   }
@@ -486,6 +474,7 @@
     font-weight: 500;
   }
   .day-events { display: flex; flex-direction: column; gap: 10px; }
+
   .event {
     display: grid;
     grid-template-columns: 80px auto 1fr;
@@ -526,6 +515,27 @@
     font-weight: 400;
     font-family: 'Inter', sans-serif;
   }
+
+  /* ===== Clickable Event (jump to highlight) ===== */
+  a.event {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease;
+    position: relative;
+  }
+  a.event:hover { transform: translateX(4px); }
+  a.event:hover .what { color: var(--red); }
+  a.event .jump {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--red);
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.18s ease;
+  }
+  a.event:hover .jump { transform: translateX(4px); }
 
   /* Big All-Day Event in Timeline */
   .event.all-day {
@@ -570,6 +580,9 @@
     font-weight: 400;
     letter-spacing: 0.05em;
   }
+  a.event.all-day:hover { background: #2a1e1e; }
+  a.event.all-day:hover .what { color: var(--paper); }
+  a.event.all-day .jump { color: var(--paper); opacity: 0.7; }
 
   /* ===== Footer ===== */
   footer {
@@ -820,7 +833,7 @@
     </div>
   </section>
 
-  <!-- ========== FLIGHTS ========== -->
+  <!-- ========== §01 FLIGHTS ========== -->
   <section class="section">
     <div class="section-head">
       <div class="section-num">01</div>
@@ -832,7 +845,6 @@
     </div>
 
     <div class="grid grid-2">
-      <!-- Outbound -->
       <article class="card">
         <span class="corner">↗</span>
         <div class="kicker">Outbound — 出発</div>
@@ -862,7 +874,6 @@
         </ul>
       </article>
 
-      <!-- Return -->
       <article class="card">
         <span class="corner">↙</span>
         <div class="kicker">Return — 帰国</div>
@@ -899,7 +910,7 @@
     </div>
   </section>
 
-  <!-- ========== HOTELS ========== -->
+  <!-- ========== §02 HOTELS ========== -->
   <section class="section">
     <div class="section-head">
       <div class="section-num">02</div>
@@ -911,7 +922,6 @@
     </div>
 
     <div class="grid grid-3">
-      <!-- Hotel 1 -->
       <article class="card">
         <span class="corner">1</span>
         <div class="kicker">Ueno · 上野</div>
@@ -927,7 +937,6 @@
         </ul>
       </article>
 
-      <!-- Hotel 2 -->
       <article class="card">
         <span class="corner">2</span>
         <div class="kicker">Shinjuku · 新宿</div>
@@ -945,7 +954,6 @@
         </ul>
       </article>
 
-      <!-- Hotel 3 -->
       <article class="card">
         <span class="corner">3</span>
         <div class="kicker">Otsuka · 大塚</div>
@@ -961,10 +969,188 @@
     </div>
   </section>
 
-  <!-- ========== HIGHLIGHTS ========== -->
+  <!-- ========== §03 COMPLETE ITINERARY (moved up) ========== -->
   <section class="section">
     <div class="section-head">
       <div class="section-num">03</div>
+      <div class="section-title">
+        完整日程
+        <span class="en">The 9 Days at a Glance ／ 日程表</span>
+      </div>
+      <div class="section-meta">05.21 — 05.29 · Tap to Detail</div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 5/21 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">21</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期四 · 木</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <div class="event"><span class="time">16:20</span><span class="tag fly">Fly</span><span class="what">BR190　台北松山 → 東京羽田（20:20 抵達）<small>Boeing 787-10 · 3h 00m</small></span></div>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">上野站東方旅館 I　入住<small>大型膠囊艙房 · 上野</small></span></div>
+        </div>
+      </div>
+
+      <!-- 5/22 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">22</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期五 · 金</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <a class="event all-day" href="#spot-takanawa">
+            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
+            <div class="what">高輪 Gateway City　散策<small>TAKANAWA GATEWAY CITY ／ 順走泉岳寺・品川 ecute</small></div>
+            <span class="jump">詳細資訊 ↓</span>
+          </a>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">上野站東方旅館 I（第二晚）</span></div>
+        </div>
+      </div>
+
+      <!-- 5/23 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">23</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期六 · 土</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">上野東方旅館退房　行李寄站</span></div>
+          <a class="event all-day" href="#spot-shibuya-shop">
+            <div class="row"><span class="time">All Day</span><span class="tag shop">Shopping</span></div>
+            <div class="what">澀谷元素　逛街之旅<small>Scramble Square ／ Hikarie ／ PARCO ／ MIYASHITA PARK ／ Cat Street</small></div>
+            <span class="jump">詳細資訊 ↓</span>
+          </a>
+          <div class="event"><span class="time">18:00</span><span class="tag sleep">Sleep</span><span class="what">東橫INN 新宿御苑前　入住<small>禁菸單人房 · ¥14,060</small></span></div>
+        </div>
+      </div>
+
+      <!-- 5/24 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">24</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期日 · 日</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">東橫INN 退房　→　大塚 LiveMax 入住</span></div>
+          <div class="event"><span class="time">自由</span><span class="tag">Walk</span><span class="what">大塚周邊散策　／　巢鴨地藏通　／　池袋 Sunshine City<small>建議：抵達日輕鬆走，買 5 晚連泊的生活用品</small></span></div>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 1/5 晚）</span></div>
+        </div>
+      </div>
+
+      <!-- 5/25 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">25</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期一 · 月</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <a class="event all-day" href="#spot-enoshima-brief">
+            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
+            <div class="what">江之島　海與島的一日<small>江ノ島 ／ 江島神社・Sea Candle・しらす丼 ／ 詳見 §05 完整攻略</small></div>
+            <span class="jump">詳細資訊 ↓</span>
+          </a>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 2/5 晚）</span></div>
+        </div>
+      </div>
+
+      <!-- 5/26 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">26</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期二 · 火</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <a class="event all-day" href="#spot-disney">
+            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
+            <div class="what">東京迪士尼海洋<small>東京ディズニーシー ／ 電子票・成人 × 2 ・ 舞濱</small></div>
+            <span class="jump">詳細資訊 ↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5/27 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">27</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期三 · 水</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <a class="event all-day" href="#spot-fuji">
+            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
+            <div class="what">富士山・河口湖　一日遊<small>富士山／河口湖 ／ 玩完搭高速巴士回新宿，繼續夜逛</small></div>
+            <span class="jump">詳細資訊 ↓</span>
+          </a>
+          <div class="event"><span class="time">夜</span><span class="tag shop">Shopping</span><span class="what">新宿夜逛<small>伊勢丹 ／ 思い出橫丁 ／ 歌舞伎町 ／ 唐吉訶德 24h</small></span></div>
+        </div>
+      </div>
+
+      <!-- 5/28 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">28</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期四 · 木</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <a class="event" href="#spot-ueno-tokyo">
+            <span class="time">白天</span><span class="tag play">Day</span>
+            <span class="what">上野動物園　＋　東京車站漫步<small>大熊貓、上野公園 ／ 丸の内駅舎、KITTE、東京駅一番街<span class="jump"> 詳細資訊 ↓</span></small></span>
+          </a>
+          <a class="event" href="#spot-shibuya-sky">
+            <span class="time">18:00</span><span class="tag play">Play</span>
+            <span class="what">澀谷 SKY 觀景台<small>SHIBUYA SKY ／ 成人 × 2 ／ 渋谷スカイ屋上<span class="jump"> 詳細資訊 ↓</span></small></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5/29 -->
+      <div class="day">
+        <div class="day-date">
+          <div class="num">29</div>
+          <div>
+            <div class="mon">May · 5月</div>
+            <div class="dow">星期五 · 金</div>
+          </div>
+        </div>
+        <div class="day-events">
+          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">LiveMax 大塚退房　前往成田機場</span></div>
+          <div class="event"><span class="time">14:25</span><span class="tag fly">Fly</span><span class="what">BR197　東京成田 → 台北桃園（17:05 抵達）<small>Boeing 787-10 · 3h 40m</small></span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== §04 HIGHLIGHTS ========== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">04</div>
       <div class="section-title">
         行程亮點
         <span class="en">The Days to Remember ／ 旅のハイライト</span>
@@ -974,8 +1160,8 @@
 
     <div class="grid">
 
-      <!-- 5/22 Takanawa Gateway City -->
-      <article class="card full-day">
+      <!-- ========== 5/22 Takanawa ========== -->
+      <article class="card full-day" id="spot-takanawa">
         <span class="corner">DAY<small>05.22</small></span>
         <div>
           <div class="day-mark">Day 02 — 05.22 · 金 · Fri</div>
@@ -984,9 +1170,9 @@
 
           <ul class="meta-list">
             <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 22</strong>（金 · 星期五）</span></li>
-            <li><span class="k">交通</span><span class="v">JR 山手線 → 高輪ゲートウェイ駅</span></li>
+            <li><span class="k">推薦交通</span><span class="v">大塚 → JR 山手線 → <strong>高輪ゲートウェイ駅</strong>（約 22 分・¥210）</span></li>
+            <li><span class="k">替代路線</span><span class="v">都営淺草線 → 泉岳寺駅　徒步 8 分</span></li>
             <li><span class="k">主場域</span><span class="v">The Linkpillar 1 &amp; 2 · TAKANAWA GATEWAY CITY</span></li>
-            <li><span class="k">建議</span><span class="v">下午到傍晚最舒服，順走泉岳寺</span></li>
           </ul>
         </div>
 
@@ -1005,7 +1191,7 @@
           <div class="picks">
             <h4>必吃美食 <span class="en">Must-Eat</span></h4>
             <ul class="pick-list">
-              <li><span class="pn">01</span><span class="ptxt"><strong>T's TanTan</strong>　純素擔擔麵<small>品川駅內 · 動物性食材0使用</small></span></li>
+              <li><span class="pn">01</span><span class="ptxt"><strong>T's TanTan</strong>　純素擔擔麵<small>品川駅內 · 動物性食材 0 使用</small></span></li>
               <li><span class="pn">02</span><span class="ptxt"><strong>鳥ぎん 高輪店</strong>　名物親子丼<small>江戶時代創業老舖，串燒也強</small></span></li>
               <li><span class="pn">03</span><span class="ptxt"><strong>うぶか</strong>　澤蟹會席<small>米其林一星 · 預約制 · 高輪</small></span></li>
               <li><span class="pn">04</span><span class="ptxt"><strong>麺屋 大斗</strong>　濃厚魚介豚骨<small>港區拉麵代表選手</small></span></li>
@@ -1015,8 +1201,8 @@
         </div>
       </article>
 
-      <!-- 5/23 Shibuya Shopping -->
-      <article class="card full-day">
+      <!-- ========== 5/23 Shibuya Shopping ========== -->
+      <article class="card full-day" id="spot-shibuya-shop">
         <span class="corner">DAY<small>05.23</small></span>
         <div>
           <div class="day-mark">Day 03 — 05.23 · 土 · Sat</div>
@@ -1025,7 +1211,8 @@
 
           <ul class="meta-list">
             <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 23</strong>（土 · 星期六）</span></li>
-            <li><span class="k">交通</span><span class="v">JR 山手線 → 澀谷駅</span></li>
+            <li><span class="k">推薦交通</span><span class="v">上野 → 東京メトロ銀座線 → <strong>渋谷駅</strong>（約 32 分・¥210）</span></li>
+            <li><span class="k">替代路線</span><span class="v">JR 山手線 → 澀谷駅　直達</span></li>
             <li><span class="k">路線建議</span><span class="v">Scramble Square → Hikarie → Stream → 109 → PARCO → MIYASHITA PARK → Cat Street</span></li>
             <li><span class="k">傍晚</span><span class="v">移動到新宿御苑，東橫INN 18:00 入住</span></li>
           </ul>
@@ -1057,63 +1244,60 @@
         </div>
       </article>
 
-      <!-- 5/24 Enoshima -->
-      <article class="card full-day">
-        <span class="corner">DAY<small>05.24</small></span>
+      <!-- ========== 5/25 Enoshima (brief) ========== -->
+      <article class="card full-day" id="spot-enoshima-brief">
+        <span class="corner">DAY<small>05.25</small></span>
         <div>
-          <div class="day-mark">Day 04 — 05.24 · 日 · Sun</div>
+          <div class="day-mark">Day 05 — 05.25 · 月 · Mon</div>
           <h3>江之島　海與島的一日<span class="sub-name">江ノ島 ／ Enoshima Day Trip</span></h3>
-          <p class="lede">退房後直奔湘南。藤澤轉江之電，整段慢車線本身就是行程。江島神社拜完，吃一碗剛打撈的吻仔魚丼，傍晚回東京、再進大塚的家。</p>
+          <p class="lede">從大塚搭山手線到新宿，再轉小田急直奔湘南。江島神社三宮拜完，吃一碗剛打撈的吻仔魚丼，傍晚稚兒之淵看富士山剪影。<strong>完整攻略請見 §05 江之島完全攻略</strong>。</p>
 
           <ul class="meta-list">
-            <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 24</strong>（日 · 星期日）</span></li>
-            <li><span class="k">交通</span><span class="v">小田急浪漫特急（新宿 → 片瀬江ノ島）約 70 分　／　或 JR 湘南新宿線 → 藤澤轉江之電</span></li>
+            <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 25</strong>（月 · 星期一）</span></li>
+            <li><span class="k">推薦交通</span><span class="v">大塚 → JR 山手線 → 新宿 → <strong>小田急浪漫特急 → 片瀬江ノ島</strong>（約 90 分）</span></li>
+            <li><span class="k">替代路線</span><span class="v">JR 湘南新宿線 → 藤澤駅　轉江之電</span></li>
             <li><span class="k">建議票券</span><span class="v">「江之島・鎌倉 Free Pass」一票到底</span></li>
-            <li><span class="k">注意</span><span class="v">行李先寄大塚飯店或新宿車站投幣櫃</span></li>
+            <li><span class="k">深入閱讀</span><span class="v"><a href="#enoshima-guide" style="color:var(--red);text-decoration:underline;">→ §05 江之島完全攻略</a></span></li>
           </ul>
         </div>
 
         <div>
           <div class="picks">
-            <h4>必訪景點 <span class="en">What to See</span></h4>
+            <h4>必訪景點 <span class="en">Top Highlights</span></h4>
             <ul class="pick-list">
-              <li><span class="pn">01</span><span class="ptxt"><strong>江島神社</strong>　邊津宮・中津宮・奧津宮<small>島上三座古社，求姻緣勝地</small></span></li>
-              <li><span class="pn">02</span><span class="ptxt"><strong>江之島 Sea Candle</strong>　展望燈塔<small>360 度湘南海景，天氣好看富士山</small></span></li>
-              <li><span class="pn">03</span><span class="ptxt"><strong>岩屋洞窟</strong>　弘法大師修行地<small>島的最深處，海蝕洞穴</small></span></li>
-              <li><span class="pn">04</span><span class="ptxt"><strong>龍戀之鐘</strong>　情侶聖地<small>掛上鎖頭看夕陽</small></span></li>
-              <li><span class="pn">05</span><span class="ptxt"><strong>鎌倉高校前駅</strong>　灌籃高手平交道<small>江之電一站之差，順拍打卡</small></span></li>
-              <li><span class="pn">06</span><span class="ptxt"><strong>新江ノ島水族館</strong>　えのすい<small>湘南代表水族館，水母區必看</small></span></li>
+              <li><span class="pn">01</span><span class="ptxt"><strong>江島神社 三宮</strong>　邊津・中津・奧津<small>日本三大弁財天</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>江之島 Sea Candle</strong>　展望燈塔<small>360 度湘南／富士山景</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>江之島岩屋</strong>　海蝕洞窟<small>江之島信仰起源</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>稚兒之淵</strong>　看富士山剪影夕陽<small>5 月日落 18:30 前後</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>戀人之丘 龍戀之鐘</strong>　掛鎖<small>江之島最浪漫的角落</small></span></li>
             </ul>
           </div>
 
           <div class="picks">
             <h4>必吃美食 <span class="en">Must-Eat</span></h4>
             <ul class="pick-list">
-              <li><span class="pn">01</span><span class="ptxt"><strong>とびっちょ</strong>　しらす丼名店<small>島上排隊 No.1 · 生熟雙拼吻仔魚</small></span></li>
-              <li><span class="pn">02</span><span class="ptxt"><strong>あさひ本店</strong>　章魚煎餅<small>整隻章魚壓成餅 · 江之島代名詞</small></span></li>
-              <li><span class="pn">03</span><span class="ptxt"><strong>江之島丼</strong>　元祖：中村屋／海光<small>蛋汁鋪滿サザエ螺肉，當地老味</small></span></li>
-              <li><span class="pn">04</span><span class="ptxt"><strong>江ノ電もなか</strong>　江之電造型最中<small>扇屋本店 · 伴手禮首選</small></span></li>
-              <li><span class="pn">05</span><span class="ptxt"><strong>湘南しらすパン</strong>　吻仔魚麵包<small>島內小麵包店，鹹甜出乎意料</small></span></li>
-              <li><span class="pn">06</span><span class="ptxt"><strong>江島亭</strong>　海鮮會席<small>想坐下吃一頓正餐就來這</small></span></li>
+              <li><span class="pn">01</span><span class="ptxt"><strong>とびっちょ</strong>　しらす丼<small>島上排隊 No.1</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>あさひ本店</strong>　章魚煎餅<small>江之島代名詞</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>江之島亭</strong>　江之島丼<small>1909 創業</small></span></li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- 5/26 DisneySea -->
-      <article class="card full-day">
+      <!-- ========== 5/26 DisneySea ========== -->
+      <article class="card full-day" id="spot-disney">
         <span class="corner">DAY<small>05.26</small></span>
         <div>
           <div class="day-mark">Day 06 — 05.26 · 火 · Tue</div>
-          <h3>東京迪士尼海<span class="sub-name">東京ディズニーシー ／ Tokyo DisneySea</span></h3>
+          <h3>東京迪士尼海洋<span class="sub-name">東京ディズニーシー ／ Tokyo DisneySea</span></h3>
           <p class="lede">海的世界。早上從 Mediterranean Harbor 進場，傍晚等 Mt. Prometheus 的火光，最後在 BB 區看完夜間秀再走。</p>
 
           <ul class="meta-list">
             <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 26</strong>（火 · 星期二）</span></li>
             <li><span class="k">票券</span><span class="v">電子票 · 1-Day Passport</span></li>
             <li><span class="k">人數</span><span class="v">成人 × 2</span></li>
+            <li><span class="k">推薦交通</span><span class="v">大塚 → JR 山手線 → 東京駅 → <strong>JR 京葉線 → 舞濱駅</strong> → 迪士尼度假區線 → 東京ディズニーシー駅（約 50 分・¥400）</span></li>
             <li><span class="k">時區</span><span class="v">當地時間（日本 JST）</span></li>
-            <li><span class="k">交通</span><span class="v">JR 京葉線 → 舞濱駅 → 迪士尼度假區線 → 東京ディズニーシー駅</span></li>
           </ul>
         </div>
 
@@ -1131,18 +1315,127 @@
         </div>
       </article>
 
-      <!-- 5/28 Shibuya Sky -->
-      <article class="card">
+      <!-- ========== 5/27 Fuji + Kawaguchiko + Shinjuku Night ========== -->
+      <article class="card full-day" id="spot-fuji">
+        <span class="corner">DAY<small>05.27</small></span>
+        <div>
+          <div class="day-mark">Day 07 — 05.27 · 水 · Wed</div>
+          <h3>富士山 ・ 河口湖<span class="sub-name">富士山・河口湖 ／ Fuji &amp; Kawaguchiko Day Trip</span></h3>
+          <p class="lede">五月新綠的富士山，雪頂未退、湖面正藍。早上從新宿バスタ搭高速巴士直達河口湖，搭觀光船在湖面看「逆富士」，登富士山纜車俯瞰，傍晚回到新宿，繼續夜逛。</p>
+
+          <ul class="meta-list">
+            <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 27</strong>（水 · 星期三）</span></li>
+            <li><span class="k">出發地</span><span class="v">大塚 → JR 山手線 → 新宿（約 14 分・¥170）</span></li>
+            <li><span class="k">推薦交通</span><span class="v"><strong>新宿バスタ → 富士急高速巴士 → 河口湖駅</strong>（直達約 2 小時 ／ ¥2,200／需預約）</span></li>
+            <li><span class="k">替代路線</span><span class="v">JR 中央線特急 → 大月駅 → 富士急行線 → 河口湖駅（約 2.5h）</span></li>
+            <li><span class="k">島上交通</span><span class="v">河口湖周遊巴士 一日券 ¥1,500（紅・綠・藍三線環湖）</span></li>
+            <li><span class="k">回程</span><span class="v">河口湖 18:00 末班巴士 → 新宿（19:50 抵達）</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="picks">
+            <h4>河口湖必訪 <span class="en">Around Lake Kawaguchi</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>河口湖 觀光船 天晴</strong>　30 分湖上巡航<small>5 月晴天可見「逆富士」</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>富士山パノラマロープウェイ</strong>　4 分鐘登展望台<small>俯瞰河口湖＋富士山</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>大石公園</strong>　湖北側<small>五月新綠＋花花季節輪替</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>新倉山淺間公園</strong>　398 階登忠靈塔<small>富士山＋五重塔經典構圖</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>河口湖音樂之森</strong>　自動演奏鋼琴<small>歐風建築＋玫瑰園</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>忍野八海</strong>　富士伏流水八個小池<small>離河口湖搭巴士約 25 分</small></span></li>
+            </ul>
+          </div>
+
+          <div class="picks">
+            <h4>河口湖必吃 <span class="en">Must-Eat</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>ほうとう 不動</strong>　山梨郷土料理<small>南瓜味噌湯麵 · 河口湖駅前店</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>富士山溶岩燒</strong>　石板烤肉<small>用富士山溶岩石加熱</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>桔梗信玄餅</strong>　山梨經典伴手禮<small>必買！工場參觀可試吃</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>河口湖 cafe MIMI</strong>　湖畔下午茶<small>蛋糕＋富士山景</small></span></li>
+            </ul>
+          </div>
+
+          <div class="picks">
+            <h4>夜逛新宿 <span class="en">Shinjuku by Night</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>新宿三丁目</strong>　伊勢丹本館／丸井／Bicqlo<small>百貨大集合，9 點前血拚</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>思い出橫丁</strong>　Memory Lane<small>站在小巷吃串燒、燒鳥</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>歌舞伎町一番街</strong>　哥吉拉路口<small>TOHO Cinemas 哥吉拉頭</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>新宿東口</strong>　ALTA・新宿駅東口廣場<small>會說話的廣告 ALTA 大螢幕</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>唐吉訶德 新宿東口</strong>　24h<small>夜貓子最後一站</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>風雲兒</strong>　魚介豚骨拉麵<small>南口名店，深夜也排</small></span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== 5/28 Ueno Zoo + Tokyo Station ========== -->
+      <article class="card full-day" id="spot-ueno-tokyo">
+        <span class="corner">DAY<small>05.28</small></span>
+        <div>
+          <div class="day-mark">Day 08 — 05.28 · 木 · Thu　·　白天</div>
+          <h3>上野動物園　＋　東京車站漫步<span class="sub-name">上野動物園 ・ 東京駅 ／ Ueno Zoo &amp; Tokyo Station Walk</span></h3>
+          <p class="lede">一個早上去動物園找熊貓，下午一路散步丸之內、看赤煉瓦的東京車站建築、逛 KITTE 與一番街。傍晚搭山手線轉去澀谷上 Shibuya Sky。</p>
+
+          <ul class="meta-list">
+            <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 28</strong>（木 · 星期四）　白天時段</span></li>
+            <li><span class="k">推薦交通</span><span class="v">大塚 → <strong>JR 山手線 → 上野駅</strong>（約 12 分・¥170）</span></li>
+            <li><span class="k">中段</span><span class="v">上野 → JR 山手線 → 東京駅（約 4 分・¥150）</span></li>
+            <li><span class="k">傍晚</span><span class="v">東京駅 → JR 山手線 → 渋谷駅（約 25 分・¥210，準備上 SHIBUYA SKY）</span></li>
+            <li><span class="k">門票</span><span class="v">上野動物園 一般 ¥600 ／中學生 ¥200 ／65 歲以上 ¥300</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="picks">
+            <h4>上野順路 <span class="en">Around Ueno</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>上野動物園</strong>　西園 + 東園<small>大熊貓、長頸鹿、北極熊 ・ 9:30–17:00</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>上野公園</strong>　不忍池<small>西郷隆盛像、清水觀音堂、蓮花池</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>國立科學博物館</strong>　恐龍化石<small>地球館＋日本館</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>東京國立博物館</strong>　本館・東洋館<small>日本最大美術館，常設展即可看一日</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>アメ橫商店街</strong>　站前老市場<small>多慶屋伴手禮、老牌雜貨</small></span></li>
+            </ul>
+          </div>
+
+          <div class="picks">
+            <h4>東京車站順路 <span class="en">Around Tokyo Station</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>丸の内駅舎</strong>　1914 赤煉瓦建築<small>國家重要文化財・出站正面拍</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>KITTE 丸之內</strong>　舊郵便局改建<small>屋頂庭園免費・展望東京駅全景</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>東京駅一番街</strong>　Character Street<small>動漫角色商店一條街</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>GRANSTA</strong>　站內美食街<small>便當、零食、伴手禮一次補</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>丸之內仲通</strong>　兩排櫸樹街道<small>名牌旗艦店與咖啡座</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>皇居外苑</strong>　二重橋<small>步行 10 分到皇居正門</small></span></li>
+            </ul>
+          </div>
+
+          <div class="picks">
+            <h4>必吃美食 <span class="en">Must-Eat</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>東京駅 拉麵街</strong>　六厘舍／斑鳩／蔦<small>米其林一星，東京駅一番街地下</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>GRANSTA 牛タン利久</strong>　仙台牛舌<small>站內，旅人最愛</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>上野 みはし</strong>　餡蜜聖代<small>1948 老舖，江戶下町甜點</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>上野 大統領</strong>　站前居酒屋<small>白天就在喝的傳奇</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>丸之內仲通</strong>　歐式餐廳街<small>傍晚街燈氣氛超棒</small></span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== 5/28 Shibuya Sky ========== -->
+      <article class="card" id="spot-shibuya-sky">
         <span class="corner">★</span>
         <div class="kicker">Skyline — 渋谷</div>
         <h3>澀谷 SKY 觀景台<span class="sub-name">SHIBUYA SKY ／ 渋谷スカイ</span></h3>
         <p class="lede">傍晚六點入場，從夕陽看到夜景。澀谷十字路口最美的一個小時。</p>
 
         <ul class="meta-list">
-          <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 28</strong>（木 · 星期四）</span></li>
-          <li><span class="k">入場</span><span class="v"><strong>18:00</strong> 入場時刻</span></li>
-          <li><span class="k">票券</span><span class="v">成人票（12 歲以上）</span></li>
-          <li><span class="k">人數</span><span class="v">成人 × 2</span></li>
+          <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 28</strong>（木 · 星期四）　18:00 入場</span></li>
+          <li><span class="k">推薦交通</span><span class="v">東京駅 → <strong>JR 山手線 → 渋谷駅</strong>（約 25 分・¥210）</span></li>
+          <li><span class="k">替代路線</span><span class="v">大塚 → JR 山手線 → 池袋 → 東京メトロ副都心線 → 渋谷</span></li>
+          <li><span class="k">票券</span><span class="v">成人票（12 歲以上）· 成人 × 2</span></li>
           <li><span class="k">地點</span><span class="v">澀谷 Scramble Square 14F 入口 → 45F 屋頂</span></li>
         </ul>
       </article>
@@ -1150,15 +1443,15 @@
     </div>
   </section>
 
-  <!-- ========== ENOSHIMA COMPLETE GUIDE ========== -->
-  <section class="section">
+  <!-- ========== §05 ENOSHIMA COMPLETE GUIDE ========== -->
+  <section class="section" id="enoshima-guide">
     <div class="section-head">
-      <div class="section-num">04</div>
+      <div class="section-num">05</div>
       <div class="section-title">
         江之島完全攻略
         <span class="en">The Complete Enoshima Guide ／ 江ノ島ガイド</span>
       </div>
-      <div class="section-meta">5 / 24 · Deep Dive</div>
+      <div class="section-meta">5 / 25 · Deep Dive</div>
     </div>
 
     <div class="enoshima-intro">
@@ -1472,158 +1765,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- ========== ITINERARY TIMELINE ========== -->
-  <section class="section">
-    <div class="section-head">
-      <div class="section-num">05</div>
-      <div class="section-title">
-        完整日程
-        <span class="en">The 9 Days at a Glance ／ 日程表</span>
-      </div>
-      <div class="section-meta">05.21 — 05.29</div>
-    </div>
-
-    <div class="timeline">
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">21</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期四 · 木</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">16:20</span><span class="tag fly">Fly</span><span class="what">BR190　台北松山 → 東京羽田（20:20 抵達）<small>Boeing 787-10 · 3h 00m</small></span></div>
-          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">上野站東方旅館 I　入住<small>大型膠囊艙房 · 上野</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">22</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期五 · 金</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event all-day">
-            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
-            <div class="what">高輪 Gateway City　散策<small>TAKANAWA GATEWAY CITY ／ 順走泉岳寺・品川 ecute</small></div>
-          </div>
-          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">上野站東方旅館 I（第二晚）</span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">23</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期六 · 土</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">上野東方旅館退房　行李寄站</span></div>
-          <div class="event all-day">
-            <div class="row"><span class="time">All Day</span><span class="tag shop">Shopping</span></div>
-            <div class="what">澀谷元素　逛街之旅<small>Scramble Square ／ Hikarie ／ PARCO ／ MIYASHITA PARK ／ Cat Street</small></div>
-          </div>
-          <div class="event"><span class="time">18:00</span><span class="tag sleep">Sleep</span><span class="what">東橫INN 新宿御苑前　入住<small>禁菸單人房 · ¥14,060</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">24</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期日 · 日</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">東橫INN 退房　新宿出發</span></div>
-          <div class="event all-day">
-            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
-            <div class="what">江之島　海與島的一日<small>江ノ島 ／ 江島神社・Sea Candle・しらす丼</small></div>
-          </div>
-          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店　入住<small>5 晚連泊第 1 晚</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">25</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期一 · 月</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">Free</span><span class="tag">Walk</span><span class="what">自由日　待安排<small>建議：下町散策、池袋、谷根千</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">26</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期二 · 火</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event all-day">
-            <div class="row"><span class="time">All Day</span><span class="tag play">Highlight</span></div>
-            <div class="what">東京迪士尼海<small>東京ディズニーシー ／ 電子票 · 成人 × 2 · 舞濱</small></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">27</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期三 · 水</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">Free</span><span class="tag">Walk</span><span class="what">自由日　待安排<small>建議：築地外場 → 銀座、藏前文具散步</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">28</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期四 · 木</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">18:00</span><span class="tag play">Play</span><span class="what">澀谷 SKY 觀景台<small>SHIBUYA SKY · 成人 × 2 · 渋谷スカイ屋上</small></span></div>
-        </div>
-      </div>
-
-      <div class="day">
-        <div class="day-date">
-          <div class="num">29</div>
-          <div>
-            <div class="mon">May · 5月</div>
-            <div class="dow">星期五 · 金</div>
-          </div>
-        </div>
-        <div class="day-events">
-          <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">LiveMax 大塚退房　前往成田機場</span></div>
-          <div class="event"><span class="time">14:25</span><span class="tag fly">Fly</span><span class="what">BR197　東京成田 → 台北桃園（17:05 抵達）<small>Boeing 787-10 · 3h 40m</small></span></div>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <!-- ========== FOOTER ========== -->

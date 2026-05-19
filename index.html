@@ -88,30 +88,32 @@
 
   /* ===== Cover Headline ===== */
   .cover {
-    padding: 60px 0 50px;
+    padding: 48px 0 44px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 48px;
+    gap: 40px;
     align-items: end;
     border-bottom: 1px solid var(--ink);
+    border-top: 6px double var(--ink);
+    margin-top: 22px;
   }
   .cover h1 {
     margin: 0;
     font-family: 'Noto Serif TC', serif;
     font-weight: 900;
-    font-size: clamp(56px, 9vw, 128px);
-    line-height: 0.95;
+    font-size: clamp(34px, 5.2vw, 64px);
+    line-height: 1.1;
     letter-spacing: 0.02em;
   }
   .cover h1 .small {
     display: block;
     font-family: 'Bodoni Moda', serif;
     font-style: italic;
-    font-size: 0.28em;
+    font-size: clamp(11px, 1vw, 14px);
     font-weight: 400;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     color: var(--red);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     text-transform: uppercase;
   }
   .cover h1 .accent {
@@ -122,10 +124,10 @@
   .cover .jp {
     font-family: 'Shippori Mincho', serif;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.7;
     border-left: 3px solid var(--red);
-    padding-left: 18px;
+    padding-left: 16px;
   }
   .cover .jp small {
     display: block;
@@ -780,42 +782,173 @@
     line-height: 1.5;
   }
 
+  /* ===== Tablet (≤ 820px) ===== */
   @media (max-width: 820px) {
     .wrap { padding: 0 20px 60px; }
-    .cover { grid-template-columns: 1fr; padding: 40px 0 30px; }
+    .cover {
+      grid-template-columns: 1fr;
+      padding: 36px 0 30px;
+      gap: 26px;
+      margin-top: 16px;
+    }
+    .cover h1 { font-size: clamp(30px, 7vw, 48px); line-height: 1.15; }
+    .cover h1 .small { font-size: 12px; margin-bottom: 12px; }
+    .cover .jp { font-size: 16px; padding-left: 14px; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .section-head { grid-template-columns: auto 1fr; }
+    .section { padding: 44px 0 18px; }
+    .section-head {
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+    }
+    .section-num { font-size: 48px; }
+    .section-title { font-size: 30px; }
+    .section-title .en { font-size: 12px; letter-spacing: 0.2em; }
     .section-meta { display: none; }
-    .card.full-day { grid-template-columns: 1fr; padding: 28px 24px; }
-    .day { grid-template-columns: 1fr; gap: 12px; }
+    .card { padding: 20px 18px 22px; box-shadow: 3px 3px 0 var(--ink); }
+    .card.full-day {
+      grid-template-columns: 1fr;
+      padding: 26px 22px 28px;
+      gap: 24px;
+    }
+    .card.full-day h3 { font-size: clamp(28px, 6.5vw, 40px); }
+    .card.full-day h3 .sub-name { font-size: 14px; }
+    .card.full-day .day-mark { font-size: 14px; }
+    .card.full-day .lede { font-size: 14px; }
+    .card h3 { font-size: 22px; }
+    .card .lede { font-size: 13px; }
+    .day { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
     .day-date { display: flex; align-items: baseline; gap: 14px; }
     .day-date .num { font-size: 40px; }
-    .event { grid-template-columns: 70px auto 1fr; }
-    .banner { grid-template-columns: 1fr; }
+    .day-date .mon { margin-top: 0; }
+    .day-date .dow { margin-top: 0; }
+    .event { grid-template-columns: 64px auto 1fr; gap: 10px; font-size: 13px; }
+    .event .time { font-size: 14px; }
+    .event .tag { font-size: 8px; padding: 2px 6px; letter-spacing: 0.15em; }
+    .event .what small { font-size: 10.5px; }
+    .event.all-day { padding: 18px 18px; }
+    .event.all-day .what { font-size: clamp(22px, 6.5vw, 32px); }
+    .event.all-day .what small { font-size: 12px; }
+    a.event .jump { font-size: 11px; }
+    .meta-list li { grid-template-columns: 76px 1fr; gap: 10px; }
+    .meta-list .k { font-size: 9.5px; }
+    .meta-list { font-size: 13px; }
+    .pick-list li { grid-template-columns: 20px 1fr; gap: 8px; font-size: 13.5px; padding: 6px 0; }
+    .pick-list .ptxt small { font-size: 10.5px; }
+    .picks h4 { font-size: 16px; }
+    .banner {
+      grid-template-columns: 1fr;
+      padding: 22px 22px;
+      gap: 12px;
+    }
+    .banner .quote { font-size: 17px; }
+    .sub-section { margin-top: 40px; }
+    .sub-section-head h3 { font-size: 22px; }
+    .sub-section-head .en { font-size: 11px; }
+    .sub-section-head .count { display: none; }
+    .spot-card { padding: 16px 16px 16px; }
+    .spot-card h4 { font-size: 16px; line-height: 1.35; }
+    .spot-card p { font-size: 13px; }
+    .day-plan { padding: 18px 18px; }
+    .day-plan .step {
+      grid-template-columns: 92px 18px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+    }
+    .day-plan .step .t { font-size: 12px; }
+    .day-plan .step .a { font-size: 13.5px; }
+    .enoshima-intro { padding: 18px 18px; font-size: 15px; line-height: 1.8; }
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      font-size: 10px;
+    }
+    footer .stamp { font-size: 18px; }
+  }
+
+  /* ===== Phone (≤ 480px) ===== */
+  @media (max-width: 480px) {
+    .wrap { padding: 0 14px 40px; }
+    .cover { padding: 28px 0 24px; gap: 18px; margin-top: 10px; }
+    .cover h1 { font-size: 30px; line-height: 1.2; }
+    .cover h1 .small { font-size: 11px; letter-spacing: 0.18em; margin-bottom: 10px; }
+    .cover .jp { font-size: 14.5px; padding-left: 12px; }
+    .cover .jp small { font-size: 10px; }
+    .section { padding: 36px 0 14px; }
+    .section-head {
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      gap: 12px;
+    }
+    .section-num { font-size: 40px; }
+    .section-title { font-size: 24px; }
+    .section-title .en { font-size: 10.5px; margin-top: 5px; }
+    .card { padding: 18px 16px 20px; box-shadow: 3px 3px 0 var(--ink); }
+    .card .corner { width: 32px; height: 32px; font-size: 16px; top: -10px; left: -10px; }
+    .card.full-day { padding: 24px 18px 26px; gap: 20px; }
+    .card.full-day .corner { width: 48px; height: 48px; font-size: 12px; }
+    .card.full-day .corner small { font-size: 7px; }
+    .card.full-day h3 { font-size: 26px; }
+    .card.full-day h3 .sub-name { font-size: 13px; }
+    .card h3 { font-size: 20px; }
+    .card h3 .sub-name { font-size: 12.5px; }
+    .day { padding: 18px 0; }
+    .day-date .num { font-size: 34px; }
+    .day-date .mon { font-size: 10px; }
+    .day-date .dow { font-size: 13px; }
+    .event { grid-template-columns: 56px auto 1fr; gap: 8px; }
+    .event .time { font-size: 13px; }
+    .event .tag { font-size: 7.5px; padding: 2px 5px; }
+    .event .what { font-size: 13px; }
+    .event .what small { font-size: 10px; }
+    .event.all-day { padding: 16px 16px; }
+    .event.all-day .what { font-size: 24px; line-height: 1.2; }
+    .event.all-day .what small { font-size: 11px; margin-top: 4px; }
+    a.event .jump { font-size: 10.5px; }
+    .meta-list li { grid-template-columns: 68px 1fr; gap: 8px; padding: 2px 0; }
+    .meta-list .k { font-size: 9px; padding-top: 2px; }
+    .meta-list .v { font-size: 12.5px; }
+    .pick-list li {
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      font-size: 13px;
+      padding: 6px 0;
+    }
+    .pick-list .pn { font-size: 12px; }
+    .pick-list .ptxt small { font-size: 10px; line-height: 1.5; }
+    .picks h4 { font-size: 15px; }
+    .picks h4 .en { font-size: 10px; letter-spacing: 0.18em; }
+    .banner { padding: 18px 18px; }
+    .banner .quote { font-size: 15px; line-height: 1.55; }
+    .banner .sig { font-size: 10.5px; }
+    .sub-section { margin-top: 32px; }
+    .sub-section-head { padding-bottom: 10px; margin-bottom: 18px; gap: 10px; }
+    .sub-section-head h3 { font-size: 19px; }
+    .spot-card { padding: 14px 14px 14px; box-shadow: 2px 2px 0 var(--ink); }
+    .spot-card .num { width: 24px; height: 24px; font-size: 11px; top: -10px; left: -10px; }
+    .spot-card h4 { font-size: 15px; }
+    .spot-card h4 .jp { font-size: 10.5px; }
+    .spot-card p { font-size: 12.5px; line-height: 1.65; }
+    .spot-card .info { font-size: 10.5px; }
+    .day-plan { padding: 16px 14px; box-shadow: 3px 3px 0 var(--ink); }
+    .day-plan .step {
+      grid-template-columns: 84px 14px 1fr;
+      gap: 8px;
+      padding: 8px 0;
+    }
+    .day-plan .step .t { font-size: 11.5px; }
+    .day-plan .step .a { font-size: 13px; line-height: 1.45; }
+    .day-plan .step .b { font-size: 12px; }
+    .enoshima-intro { padding: 16px 16px; font-size: 14px; }
+    .flight .port .code { font-size: 36px; }
+    .flight .port .time { font-size: 14px; }
+    .flight .port .city { font-size: 11px; }
+    .flight .arrow .plane { font-size: 18px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-
-  <!-- ========== MASTHEAD ========== -->
-  <header class="masthead">
-    <div class="mast-left">
-      <span>A Travel Journal for City Walkers</span>
-      <span>Vol. 01 — Tokyo Edition</span>
-    </div>
-    <div class="logo">EDZYL</div>
-    <div class="mast-right">
-      <span>May / 2026</span>
-      <span>東京の旅 ／ Free Edition</span>
-    </div>
-  </header>
-
-  <div class="sub-mast">
-    <span>Special Issue</span>
-    <span class="tag">東京九日八夜 ／ TOKYO 9 DAYS</span>
-    <span>2026.05.21 – 05.29</span>
-  </div>
 
   <!-- ========== COVER ========== -->
   <section class="cover">
@@ -1029,7 +1162,7 @@
           <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">上野東方旅館退房　行李寄站</span></div>
           <a class="event all-day" href="#spot-shibuya-shop">
             <div class="row"><span class="time">All Day</span><span class="tag shop">Shopping</span></div>
-            <div class="what">澀谷元素　逛街之旅<small>Scramble Square ／ Hikarie ／ PARCO ／ MIYASHITA PARK ／ Cat Street</small></div>
+            <div class="what">澀谷、原宿　逛街之旅<small>Scramble Square ／ PARCO ／ MIYASHITA PARK ／ Cat Street ／ Laforet 原宿</small></div>
             <span class="jump">詳細資訊 ↓</span>
           </a>
           <div class="event"><span class="time">18:00</span><span class="tag sleep">Sleep</span><span class="what">東橫INN 新宿御苑前　入住<small>禁菸單人房 · ¥14,060</small></span></div>
@@ -1048,7 +1181,7 @@
         <div class="day-events">
           <div class="event"><span class="time">上午</span><span class="tag">Move</span><span class="what">東橫INN 退房　→　大塚 LiveMax 入住</span></div>
           <div class="event"><span class="time">自由</span><span class="tag">Walk</span><span class="what">大塚周邊散策　／　巢鴨地藏通　／　池袋 Sunshine City<small>建議：抵達日輕鬆走，買 5 晚連泊的生活用品</small></span></div>
-          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 1/5 晚）</span></div>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 5 晚）</span></div>
         </div>
       </div>
 
@@ -1067,7 +1200,7 @@
             <div class="what">江之島　海與島的一日<small>江ノ島 ／ 江島神社・Sea Candle・しらす丼 ／ 詳見 §05 完整攻略</small></div>
             <span class="jump">詳細資訊 ↓</span>
           </a>
-          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 2/5 晚）</span></div>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 5 晚）</span></div>
         </div>
       </div>
 
@@ -1086,6 +1219,7 @@
             <div class="what">東京迪士尼海洋<small>東京ディズニーシー ／ 電子票・成人 × 2 ・ 舞濱</small></div>
             <span class="jump">詳細資訊 ↓</span>
           </a>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 5 晚）</span></div>
         </div>
       </div>
 
@@ -1105,6 +1239,7 @@
             <span class="jump">詳細資訊 ↓</span>
           </a>
           <div class="event"><span class="time">夜</span><span class="tag shop">Shopping</span><span class="what">新宿夜逛<small>伊勢丹 ／ 思い出橫丁 ／ 歌舞伎町 ／ 唐吉訶德 24h</small></span></div>
+          <div class="event"><span class="time">深夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 5 晚）</span></div>
         </div>
       </div>
 
@@ -1126,6 +1261,7 @@
             <span class="time">18:00</span><span class="tag play">Play</span>
             <span class="what">澀谷 SKY 觀景台<small>SHIBUYA SKY ／ 成人 × 2 ／ 渋谷スカイ屋上<span class="jump"> 詳細資訊 ↓</span></small></span>
           </a>
+          <div class="event"><span class="time">夜</span><span class="tag sleep">Sleep</span><span class="what">東京大塚 LiveMax 飯店（連泊 5 晚）</span></div>
         </div>
       </div>
 
@@ -1206,39 +1342,56 @@
         <span class="corner">DAY<small>05.23</small></span>
         <div>
           <div class="day-mark">Day 03 — 05.23 · 土 · Sat</div>
-          <h3>澀谷元素　逛街之旅<span class="sub-name">渋谷ショッピング ／ Shopping Day in Shibuya</span></h3>
-          <p class="lede">澀谷站方圓 500 公尺，本身就是一座立體商場。從 Scramble Square 一路逛到 MIYASHITA PARK，再沿 Cat Street 走到原宿——這天就把行李寄存，認真把卡刷熱。</p>
+          <h3>澀谷、原宿　逛街之旅<span class="sub-name">渋谷・原宿ショッピング ／ Shopping in Shibuya &amp; Harajuku</span></h3>
+          <p class="lede">澀谷站方圓 500 公尺本身就是一座立體商場。從 Scramble Square 逛到 MIYASHITA PARK，沿 Cat Street 走進原宿、表參道——獨旅這天把卡刷熱，逛累就坐進吧台位喝一杯。</p>
 
           <ul class="meta-list">
             <li><span class="k">日期</span><span class="v"><strong>2026 / 05 / 23</strong>（土 · 星期六）</span></li>
             <li><span class="k">推薦交通</span><span class="v">上野 → 東京メトロ銀座線 → <strong>渋谷駅</strong>（約 32 分・¥210）</span></li>
             <li><span class="k">替代路線</span><span class="v">JR 山手線 → 澀谷駅　直達</span></li>
-            <li><span class="k">路線建議</span><span class="v">Scramble Square → Hikarie → Stream → 109 → PARCO → MIYASHITA PARK → Cat Street</span></li>
-            <li><span class="k">傍晚</span><span class="v">移動到新宿御苑，東橫INN 18:00 入住</span></li>
+            <li><span class="k">路線建議</span><span class="v">Scramble Square → PARCO → MIYASHITA PARK → Cat Street → 原宿 Laforet → 表參道</span></li>
+            <li><span class="k">傍晚</span><span class="v">明治神宮前 → 東京メトロ副都心線 → 新宿三丁目（東橫INN 18:00 入住）</span></li>
           </ul>
         </div>
 
         <div>
           <div class="picks">
-            <h4>必逛商場 <span class="en">Where to Shop</span></h4>
+            <h4>必逛百貨 ／ 商場 <span class="en">Department Stores</span></h4>
             <ul class="pick-list">
-              <li><span class="pn">01</span><span class="ptxt"><strong>Shibuya Scramble Square</strong><small>頂樓 SHIBUYA SKY 預留到 5/28</small></span></li>
-              <li><span class="pn">02</span><span class="ptxt"><strong>Shibuya Hikarie ShinQs</strong><small>大人取向，d47 食堂在 8 樓</small></span></li>
-              <li><span class="pn">03</span><span class="ptxt"><strong>Shibuya PARCO</strong><small>任天堂東京、寶可夢中心、Jump Shop</small></span></li>
-              <li><span class="pn">04</span><span class="ptxt"><strong>MIYASHITA PARK</strong><small>屋頂公園 + 澀谷橫丁居酒屋街</small></span></li>
-              <li><span class="pn">05</span><span class="ptxt"><strong>SHIBUYA 109</strong><small>原宿 girls 文化大本營</small></span></li>
-              <li><span class="pn">06</span><span class="ptxt"><strong>Cat Street → 原宿</strong><small>古著、選物、Supreme，一路逛到表參道</small></span></li>
+              <li><span class="pn">01</span><span class="ptxt"><strong>Shibuya Scramble Square</strong>　澀谷地標<small>頂樓 SHIBUYA SKY 預留 5/28</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>Shibuya PARCO</strong>　次文化重鎮<small>任天堂東京、寶可夢中心、Jump Shop、Mandarake</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>MIYASHITA PARK</strong>　屋頂公園街區<small>1F 澀谷橫丁、3F 高端潮牌、屋頂草地</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>Shibuya Hikarie ShinQs</strong>　大人選物<small>地下美食、8F d47 食堂</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>Laforet 原宿</strong>　原宿時尚堡壘<small>地下 Y/M 區、Vintage 樓層</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>東急 PLAZA 表參道原宿</strong>　鏡面入口<small>屋頂花園免費、Adam et Ropé Le Magasin</small></span></li>
             </ul>
           </div>
 
           <div class="picks">
-            <h4>必吃美食 <span class="en">Must-Eat</span></h4>
+            <h4>必逛日潮品牌 <span class="en">Japanese Streetwear</span></h4>
             <ul class="pick-list">
-              <li><span class="pn">01</span><span class="ptxt"><strong>澀谷橫丁</strong>　MIYASHITA PARK 一樓<small>47 都道府縣居酒屋，串到爛醉</small></span></li>
-              <li><span class="pn">02</span><span class="ptxt"><strong>d47 食堂</strong>　Hikarie 8F<small>每月換縣定食 · 設計感強</small></span></li>
-              <li><span class="pn">03</span><span class="ptxt"><strong>一蘭拉麵 澀谷店</strong><small>單人座位，深夜也開</small></span></li>
-              <li><span class="pn">04</span><span class="ptxt"><strong>挽肉と米 澀谷</strong><small>現烤漢堡排定食，要早排</small></span></li>
-              <li><span class="pn">05</span><span class="ptxt"><strong>FUGLEN TOKYO</strong>　澀谷奧地<small>北歐風咖啡，逛累來這緩衝</small></span></li>
+              <li><span class="pn">01</span><span class="ptxt"><strong>BEAMS 渋谷店</strong>　日系選品始祖<small>1976 創業，6 層樓全品線・神南エリア</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>UNITED ARROWS &amp; SONS</strong>　大人系日潮<small>原宿明治通本店</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>BAPE STORE 原宿</strong>　NIGO 起家厝<small>A Bathing Ape ・ Cat Street</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>HUMAN MADE 原宿</strong>　NIGO 新世代<small>愛心 LOGO、Tee／工裝</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>WIND AND SEA</strong>　爆紅新潮牌<small>渋谷 PARCO &amp; 表參道</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>Supreme 原宿</strong>　Cat Street 老巢<small>限定排隊・週六禁排</small></span></li>
+              <li><span class="pn">07</span><span class="ptxt"><strong>NEIGHBORHOOD 原宿</strong>　硬派軍裝<small>Cat Street・隔幾步就到 BAPE</small></span></li>
+              <li><span class="pn">08</span><span class="ptxt"><strong>COMME des GARÇONS</strong>　川久保玲<small>南青山本店・必朝聖</small></span></li>
+            </ul>
+          </div>
+
+          <div class="picks">
+            <h4>一人也能吃 <span class="en">Solo-Friendly Dining</span></h4>
+            <ul class="pick-list">
+              <li><span class="pn">01</span><span class="ptxt"><strong>一蘭拉麵　澀谷店</strong>　獨立隔間<small>味集中座位・24h・獨旅首選</small></span></li>
+              <li><span class="pn">02</span><span class="ptxt"><strong>挽肉と米　澀谷</strong>　全吧台座<small>現烤漢堡排定食、開放廚房、一人吃最舒服</small></span></li>
+              <li><span class="pn">03</span><span class="ptxt"><strong>d47 食堂</strong>　Hikarie 8F<small>單人櫃台位、每月換縣定食</small></span></li>
+              <li><span class="pn">04</span><span class="ptxt"><strong>富士そば　渋谷店</strong>　站著吃蕎麥麵<small>24h・¥500 內可解決・最庶民</small></span></li>
+              <li><span class="pn">05</span><span class="ptxt"><strong>元氣壽司　澀谷店</strong>　觸控點餐迴轉壽司<small>個人吧台、不用開口</small></span></li>
+              <li><span class="pn">06</span><span class="ptxt"><strong>牛角　澀谷店</strong>　一人燒肉<small>有單人套餐 ・ 不用揪</small></span></li>
+              <li><span class="pn">07</span><span class="ptxt"><strong>FUGLEN TOKYO</strong>　北歐咖啡<small>奧澀谷・吧台座・小酒吧氣氛</small></span></li>
+              <li><span class="pn">08</span><span class="ptxt"><strong>bills 表參道</strong>　世界第一早餐<small>原宿 / 表參道 / Pancake 名店・吧台單人 OK</small></span></li>
             </ul>
           </div>
         </div>

@@ -622,6 +622,151 @@
     font-weight: 700;
   }
 
+  /* ===== Sub-section & Spot Cards (Enoshima Guide) ===== */
+  .enoshima-intro {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    line-height: 1.9;
+    margin: -10px 0 36px;
+    padding: 24px 28px;
+    background: var(--paper-2);
+    border-left: 4px solid var(--red);
+  }
+
+  .sub-section { margin-top: 56px; }
+  .sub-section:first-child { margin-top: 0; }
+  .sub-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 8px 0 14px;
+    margin-bottom: 26px;
+    border-bottom: 1.5px solid var(--ink);
+    flex-wrap: wrap;
+  }
+  .sub-section-head h3 {
+    margin: 0;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+  }
+  .sub-section-head .en {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .sub-section-head .count {
+    margin-left: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .spot-card {
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    padding: 18px 20px 18px;
+    position: relative;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .spot-card .num {
+    position: absolute;
+    top: -12px; left: -12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 13px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid var(--ink);
+  }
+  .spot-card h4 {
+    margin: 0 0 6px;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+  .spot-card h4 .jp {
+    display: block;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .spot-card p {
+    margin: 8px 0 12px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .spot-card .info {
+    border-top: 1px dashed var(--ink);
+    padding-top: 10px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+  }
+  .spot-card .info span { display: block; }
+  .spot-card .info strong {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    color: var(--ink);
+    margin-right: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .day-plan {
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    padding: 22px 28px;
+  }
+  .day-plan .step {
+    display: grid;
+    grid-template-columns: 120px 22px 1fr;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.28);
+    align-items: baseline;
+  }
+  .day-plan .step:last-child { border-bottom: none; }
+  .day-plan .step .t {
+    font-family: 'Bodoni Moda', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--red);
+    letter-spacing: 0.04em;
+  }
+  .day-plan .step .b {
+    color: var(--ink);
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 900;
+    text-align: center;
+    font-size: 14px;
+  }
+  .day-plan .step .a {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
   @media (max-width: 820px) {
     .wrap { padding: 0 20px 60px; }
     .cover { grid-template-columns: 1fr; padding: 40px 0 30px; }
@@ -1005,10 +1150,334 @@
     </div>
   </section>
 
-  <!-- ========== ITINERARY TIMELINE ========== -->
+  <!-- ========== ENOSHIMA COMPLETE GUIDE ========== -->
   <section class="section">
     <div class="section-head">
       <div class="section-num">04</div>
+      <div class="section-title">
+        江之島完全攻略
+        <span class="en">The Complete Enoshima Guide ／ 江ノ島ガイド</span>
+      </div>
+      <div class="section-meta">5 / 24 · Deep Dive</div>
+    </div>
+
+    <div class="enoshima-intro">
+      神奈川縣藤澤市，距離東京僅一小時車程，是東京人最愛的湘南海灘。日本三大弁財天的「江島神社」、展望燈塔「Sea Candle」、岩屋洞窟、章魚仙貝、吻仔魚丼，還有躺在巷弄裡曬太陽的島貓。一座城市能給你的，這座小島都有。
+    </div>
+
+    <!-- 必訪景點 -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <h3>必訪景點</h3>
+        <span class="en">Must-See Spots</span>
+        <span class="count">08 places</span>
+      </div>
+
+      <div class="grid grid-3">
+
+        <article class="spot-card">
+          <div class="num">01</div>
+          <h4>新江之島水族館<span class="jp">新江ノ島水族館 ／ えのすい</span></h4>
+          <p>2004 年開館，以相模灣海洋為主題的 14 個展區。9 米高的相模灣大水槽、夢幻水母廳、人氣海豚秀，能眺富士山與江之島的無敵景。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市片瀬海岸 2-19-1</span>
+            <span><strong>時間</strong>9:00–17:00（依季節調整）</span>
+            <span><strong>票價</strong>成人 ¥2,800 ／高中 ¥1,800 ／國中小 ¥1,300 ／3 歲以上 ¥900</span>
+            <span><strong>交通</strong>小田急「片瀬江ノ島」站　徒步 3 分</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">02</div>
+          <h4>片瀨海岸<span class="jp">片瀬海岸 ／ Katase Beach</span></h4>
+          <p>江之島大橋兩側分為東濱與西濱，晴天可同時看到江之島與富士山。湘南最知名的海水浴場，登島前先踏一下浪。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市片瀬海岸 1 丁目 15</span>
+            <span><strong>交通</strong>小田急「片瀬江ノ島」站　徒步 5 分</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">03</div>
+          <h4>弁財天仲見世商店街<span class="jp">弁財天仲見世通り ／ Benzaiten St.</span></h4>
+          <p>穿過青銅鳥居後，江之島最熱鬧的一條街。海鮮餐廳、章魚仙貝、最中、伴手禮店一路延伸到江島神社。1902 年創業的「江之嶋最中」也在這。</p>
+          <div class="info">
+            <span><strong>地址</strong>神奈川縣藤澤市江之島 1-4</span>
+            <span><strong>交通</strong>江之電「江ノ島」站　徒步 15 分</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">04</div>
+          <h4>江島神社　三宮巡禮<span class="jp">江島神社（辺津宮・中津宮・奥津宮）</span></h4>
+          <p>創建於西元 552 年，日本三大弁財天之一。邊津宮（白龍王洗錢池）、中津宮（求姻緣、五種美繪馬）、奧津宮（眼觀八方龜、龍宮）三宮齊拜。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-3-8</span>
+            <span><strong>時間</strong>8:30–16:30</span>
+            <span><strong>票價</strong>境內免費 ／奉安殿 ¥200</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">05</div>
+          <h4>塞繆爾科金花園<br>+ 海蠟燭燈塔<span class="jp">江の島サムエル・コッキング苑 ／ 江の島シーキャンドル</span></h4>
+          <p>1862 年和洋風庭園溫室遺址，南國植物與四季花卉。101 公尺高的 Sea Candle 在園內，360 度展望湘南／富士山，門票日夜通用。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-3-28</span>
+            <span><strong>時間</strong>9:00–20:00</span>
+            <span><strong>票價</strong>花園 17:00 後 ¥500 ／ Sea Candle ¥800（周遊券 9 折）</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">06</div>
+          <h4>戀人之丘　龍戀之鐘<span class="jp">恋人の丘 龍恋の鐘 ／ Lovers' Hill</span></h4>
+          <p>江之島「天女與五頭龍」戀愛傳說現場。在鐘下掛上南京鎖，據說便能長長久久。海風從這吹過來，是江之島最浪漫的一角。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2 丁目 5</span>
+            <span><strong>交通</strong>從「片瀬江ノ島」站　徒步約 30 分</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">07</div>
+          <h4>江之島岩屋<span class="jp">江の島岩屋 ／ Iwaya Cave</span></h4>
+          <p>島最底部的海蝕洞窟，江之島信仰起源。弘法大師、日蓮上人都在此修行過。入洞前領手持蠟燭，第一岩屋通富士冰穴，第二岩屋為龍神聖地。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2</span>
+            <span><strong>票價</strong>成人 ¥500 ／小學生 ¥200（周遊券 9 折）</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">08</div>
+          <h4>稚兒之淵<span class="jp">稚児ヶ淵 ／ Chigogafuchi</span></h4>
+          <p>島的西南端，被海浪侵蝕成屏風懸崖。「神奈川景勝 50 選」之一。5 月日落時分能看到富士山剪影，傍晚一定要走這一段。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2 丁目 5-2</span>
+            <span><strong>5 月日落</strong>約 18:30 前後</span>
+            <span><strong>交通</strong>從「片瀬江ノ島」站　徒步約 30 分</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 必吃美食 -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <h3>必吃美食</h3>
+        <span class="en">Must-Eat</span>
+        <span class="count">07 picks</span>
+      </div>
+
+      <div class="grid grid-3">
+
+        <article class="spot-card">
+          <div class="num">01</div>
+          <h4>江之島小屋<span class="jp">江ノ島小屋 ／ Enoshima Koya</span></h4>
+          <p>片瀨海岸超人氣早餐。8:00–10:30 限定「漁師汁定食」與「金目鯛滷汁生蛋拌飯」是招牌，邊看海邊吃才有湘南風情。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市片瀬海岸 2-20-12</span>
+            <span><strong>時間</strong>8:00–20:00</span>
+            <span><strong>價格</strong>漁師汁定食 ¥1,940 ／金目鯛 TKG ¥1,540</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">02</div>
+          <h4>ALOHA TABLE Shonan<span class="jp">アロハテーブル 湘南</span></h4>
+          <p>夏威夷威基基本店分店，連續三年獲全美夏威夷漢堡飯第一。距離片瀨江之島站 1 分鐘，海景＋漢堡飯，配可愛調酒。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市片瀬海岸 2-17-17</span>
+            <span><strong>時間</strong>10:00–21:00</span>
+            <span><strong>價格</strong>漢堡飯 ¥1,980 ／拼盤 ¥2,680</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">03</div>
+          <h4>とびっちょ 本店<span class="jp">しらす問屋 とびっちょ 江の島本店</span></h4>
+          <p>島上排隊 No.1 海鮮丼。10 種以上生魚片＋當天現撈吻仔魚的「tobiccho 丼」是當店霸主。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 1-6-7</span>
+            <span><strong>時間</strong>平日 11:00–21:00 ／週末 11:00–21:00</span>
+            <span><strong>價格</strong>tobiccho 丼 ¥2,530</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">04</div>
+          <h4>江之島亭<span class="jp">江の島亭 ／ 1909 創業</span></h4>
+          <p>百年老舖獨家「江之島丼」：醬油糖燉蛤蜊＋洋蔥＋蛋花鋪在熱白飯上，再打一顆生雞蛋。鬆軟蛋花配海鮮鮮甜，秒掃。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-6-5</span>
+            <span><strong>時間</strong>平日 10:30–18:00 ／週末 10:30–19:00</span>
+            <span><strong>價格</strong>江之島丼 ¥1,540</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">05</div>
+          <h4>ASAHI 本店　章魚仙貝<span class="jp">あさひ本店 ／ Tako Senbei</span></h4>
+          <p>江之島代名詞。整隻新鮮章魚直接加壓壓扁炸成大餅，熱呼呼香脆，仲見世商店街上排最長的就是它。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 1-4-8</span>
+            <span><strong>時間</strong>9:00–18:00 ／週四公休</span>
+            <span><strong>價格</strong>一片 ¥500 ／加量版 ¥1,100</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">06</div>
+          <h4>紀之國屋本店　冰淇淋最中<span class="jp">紀の国屋本店 ／ Ice Monaka</span></h4>
+          <p>百年和菓子老舖。紅豆／抹茶／香草三款冰淇淋，搭扇貝、海螺、蛤蠣造型最中餅皮。可愛又消暑。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-1-12</span>
+            <span><strong>時間</strong>8:30–18:00 ／週三公休</span>
+            <span><strong>價格</strong>冰淇淋最中 ¥400</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">07</div>
+          <h4>THE SUNSET TERRACE<span class="jp">ザ・サンセットテラス</span></h4>
+          <p>Sea Candle 旁的露天陽台，一樓咖啡廳買的飲料可外帶上來。傍晚看夕陽最棒的座位區，記得提早卡位。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-3-28</span>
+            <span><strong>時間</strong>15:00–19:00</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 必買伴手禮 -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <h3>必買伴手禮</h3>
+        <span class="en">Take Home with You</span>
+        <span class="count">03 picks</span>
+      </div>
+
+      <div class="grid grid-3">
+
+        <article class="spot-card">
+          <div class="num">01</div>
+          <h4>中村屋羊羹店<span class="jp">中村屋羊羹店 ／ 1902 創業</span></h4>
+          <p>110 年以上江之島老店。海苔羊羹是當家招牌——第三代將岩岸海苔融入白腰豆羊羹的靈光一閃。女夫饅頭兩度獲菓子博金獎。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江の島 2-5-25</span>
+            <span><strong>時間</strong>9:00–18:00</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">02</div>
+          <h4>ENOSHIMA PUDDING<span class="jp">江の島プリン</span></h4>
+          <p>布丁原料加入湘南產大麥，吃到最後不甜膩。瓶身可愛設計感強，吃完還可收藏。原味、大麥果凍口味皆有。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市片瀬海岸 1-11-27</span>
+            <span><strong>時間</strong>10:00–17:00（夏季至 17:30）</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">03</div>
+          <h4>布遊舍　創作縮緬<span class="jp">布遊舎 江の島店</span></h4>
+          <p>日本連鎖和風雜貨店。筷子、筷架、和風小包、手帕、掛簾、可愛擺飾，整間店都是日式小物，送禮自用兩相宜。</p>
+          <div class="info">
+            <span><strong>地址</strong>藤沢市江ノ島 2-1-10</span>
+            <span><strong>時間</strong>10:00–18:00</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 一日遊推薦行程 -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <h3>一日遊推薦行程</h3>
+        <span class="en">The Perfect Enoshima Day</span>
+        <span class="count">10 hours</span>
+      </div>
+
+      <div class="day-plan">
+        <div class="step"><div class="t">10:00 – 12:00</div><div class="b">↓</div><div class="a">弁財天仲見世商店街　散步＋午餐</div></div>
+        <div class="step"><div class="t">12:00 – 12:15</div><div class="b">↓</div><div class="a">搭　江之島電扶梯　省 515 階樓梯</div></div>
+        <div class="step"><div class="t">12:30 – 13:00</div><div class="b">↓</div><div class="a">江島神社「邊津宮」　奉安殿弁財天・白龍王洗錢池</div></div>
+        <div class="step"><div class="t">13:15 – 13:45</div><div class="b">↓</div><div class="a">江島神社「中津宮」　求姻緣・五種美繪馬</div></div>
+        <div class="step"><div class="t">14:00 – 14:30</div><div class="b">↓</div><div class="a">江島神社「奧津宮」　眼觀八方龜・龍宮</div></div>
+        <div class="step"><div class="t">14:45 – 15:15</div><div class="b">↓</div><div class="a">戀人之丘　龍戀之鐘　掛鎖看海</div></div>
+        <div class="step"><div class="t">15:30 – 17:00</div><div class="b">↓</div><div class="a">江之島岩屋　手持蠟燭探洞穴</div></div>
+        <div class="step"><div class="t">17:00 – 18:00</div><div class="b">↓</div><div class="a">稚兒之淵　看富士山剪影夕陽</div></div>
+        <div class="step"><div class="t">18:15 – 19:30</div><div class="b">↓</div><div class="a">江之島 Sea Candle　燈塔頂層看夜景</div></div>
+        <div class="step"><div class="t">20:00 – 21:45</div><div class="b">↓</div><div class="a">回藤澤站　晚餐：壽司甚伍朗　／　味之古久屋</div></div>
+        <div class="step"><div class="t">21:45 –</div><div class="b">∎</div><div class="a">湘南新宿線　返回東京（大塚 LiveMax）</div></div>
+      </div>
+    </div>
+
+    <!-- 交通與票券 -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <h3>交通與票券</h3>
+        <span class="en">Getting There</span>
+        <span class="count">Routes &amp; Passes</span>
+      </div>
+
+      <div class="grid grid-2">
+
+        <article class="spot-card">
+          <div class="num">A</div>
+          <h4>從新宿出發　最常用<span class="jp">From Shinjuku</span></h4>
+          <p>新宿站　→　小田急電鐵　→　藤澤站　→　轉小田急　→　片瀬江ノ島站。<br>欲搭直達「小田急浪漫特急」，需另購特急券 ¥750。</p>
+          <div class="info">
+            <span><strong>車資</strong>約 ¥650（不含特急券）</span>
+            <span><strong>時間</strong>約 70–90 分</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">B</div>
+          <h4>鎌倉江之島周遊券<span class="jp">江ノ島・鎌倉フリーパス</span></h4>
+          <p>小田急發行，含：藤澤–鎌倉江之電無限搭、藤澤–片瀬江之島小田急無限搭、新宿–藤澤往返一次。從東京出發必買票券，最划算。</p>
+          <div class="info">
+            <span><strong>適用</strong>從新宿出發　一票到底</span>
+            <span><strong>加值</strong>Sea Candle ／岩屋／電扶梯　享 9 折</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">C</div>
+          <h4>江之島電扶梯<span class="jp">江の島エスカー</span></h4>
+          <p>日本第一座戶外電扶梯。三段往上、僅單向，省下 515 階登山路。原本 20 分鐘走完，5 分鐘搞定。</p>
+          <div class="info">
+            <span><strong>時間</strong>8:50–19:05</span>
+            <span><strong>費用</strong>成人 ¥360 ／兒童 ¥180（周遊券 9 折）</span>
+            <span><strong>位置</strong>江島神社入口左手邊</span>
+          </div>
+        </article>
+
+        <article class="spot-card">
+          <div class="num">D</div>
+          <h4>弁天丸遊覽船<span class="jp">べんてん丸</span></h4>
+          <p>從江之島弁天橋直達稚兒之淵的小型遊覽船，6 分鐘船程。想直接去岩屋、省走山路的話，這條路徑最快。</p>
+          <div class="info">
+            <span><strong>時間</strong>平日 11:00–14:30 ／週末 10:30–14:30　（1/2/12 月平日停航）</span>
+            <span><strong>費用</strong>成人 ¥400 ／兒童 ¥200 ／5 歲以下免費</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== ITINERARY TIMELINE ========== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">05</div>
       <div class="section-title">
         完整日程
         <span class="en">The 9 Days at a Glance ／ 日程表</span>

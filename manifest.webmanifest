@@ -2,7 +2,7 @@
   "name": "第 14 次東京之旅",
   "short_name": "東京之旅",
   "description": "Edzyl's 14th Tokyo Trip, May 2026",
-  "start_url": "./",
+  "start_url": "./202605tokyo.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

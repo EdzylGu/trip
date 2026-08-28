@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>曼谷・芭達雅・小珊瑚島　旅遊手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0B3B37;
+    --teal:#12564F;
+    --teal-light:#1C7268;
+    --gold:#D6A24C;
+    --gold-soft:#EAC98A;
+    --coral:#E9714A;
+    --ink:#1B2A27;
+    --paper:#FBF6EC;
+    --card:#FFFDF8;
+    --line:#D9CDB2;
+    --muted:#6B7A76;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(11,59,55,0.06) 1px, transparent 0);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:'Noto Sans TC','Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .display{font-family:'Fraunces','Noto Serif TC',serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg, var(--teal-deep) 0%, var(--teal) 60%, var(--teal-light) 100%);
+    color:var(--paper);
+    padding:64px 24px 96px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: repeating-linear-gradient(115deg, rgba(214,162,76,0.08) 0px, rgba(214,162,76,0.08) 2px, transparent 2px, transparent 46px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:920px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.18em;
+    font-size:12px;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;background:var(--gold-soft);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.15;
+    margin:0 0 14px;
+    font-weight:900;
+    letter-spacing:.01em;
+  }
+  .hero .route{
+    font-family:'Fraunces',serif;
+    font-size:clamp(15px,2.4vw,20px);
+    color:var(--gold-soft);
+    margin:0 0 34px;
+    font-weight:500;
+    font-style:italic;
+  }
+  .hero .route b{font-style:normal;color:var(--paper);}
+
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 40px;
+    border-top:1px solid rgba(251,246,236,.22);
+    padding-top:26px;
+  }
+  .hero-meta div{min-width:120px;}
+  .hero-meta .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(251,246,236,.55);
+    margin-bottom:6px;
+  }
+  .hero-meta .v{font-size:16px;font-weight:500;}
+
+  /* map ribbon */
+  .ribbon{
+    max-width:920px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+    margin-top:40px;
+    display:flex;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--gold-soft);
+    flex-wrap:wrap;
+    row-gap:10px;
+  }
+  .ribbon .stop{
+    background:rgba(251,246,236,.08);
+    border:1px solid rgba(214,162,76,.4);
+    padding:6px 12px;
+    border-radius:999px;
+    color:var(--paper);
+    white-space:nowrap;
+  }
+  .ribbon .arrow{margin:0 8px;color:var(--gold);opacity:.7;}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:920px;margin:0 auto;padding:0 24px 100px;}
+
+  section{margin-top:72px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--coral);
+    border:1px solid var(--coral);
+    border-radius:999px;
+    padding:3px 11px;
+  }
+  .section-head h2{
+    font-family:'Noto Serif TC',serif;
+    font-weight:900;
+    font-size:clamp(22px,3.4vw,30px);
+    margin:0;
+    color:var(--teal-deep);
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:14.5px;
+    margin:-18px 0 26px;
+  }
+
+  /* ---------- BOARDING PASS (flights) ---------- */
+  .pass{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 10px 30px -18px rgba(11,59,55,.35);
+    overflow:hidden;
+    margin-bottom:26px;
+  }
+  .pass-main{padding:26px 28px;}
+  .pass-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:22px;
+  }
+  .pass-carrier{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .pass-carrier b{color:var(--teal-deep);font-size:13px;letter-spacing:.06em;}
+  .pass-status{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    color:var(--teal);
+    background:rgba(28,114,104,.1);
+    border:1px solid rgba(28,114,104,.3);
+    padding:3px 10px;
+    border-radius:999px;
+  }
+  .pass-route{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:20px;
+  }
+  .pass-city{font-family:'Fraunces',serif;font-weight:700;font-size:34px;color:var(--teal-deep);}
+  .pass-city span{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .pass-plane{flex:1;position:relative;height:1px;background:var(--line);}
+  .pass-plane::after{
+    content:"✈";
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    background:var(--card);
+    color:var(--coral);
+    padding:0 8px;
+    font-size:15px;
+  }
+  .pass-rows{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px 34px;
+    padding-top:18px;
+    border-top:1px dashed var(--line);
+  }
+  .pass-rows .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .pass-rows .v{font-size:15px;font-weight:500;color:var(--ink);}
+  .pass-stub{
+    width:150px;
+    background:linear-gradient(180deg,var(--teal-deep),var(--teal));
+    color:var(--paper);
+    padding:26px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+  }
+  .pass-stub::before{
+    content:"";
+    position:absolute;top:0;left:-10px;
+    width:20px;height:20px;
+    background:var(--paper);
+    border-radius:50%;
+  }
+  .pass-stub::after{
+    content:"";
+    position:absolute;bottom:0;left:-10px;
+    width:20px;height:20px;
+    background:var(--paper);
+    border-radius:50%;
+  }
+  .pass-stub .k{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);opacity:.85;}
+  .pass-stub .v{font-family:'IBM Plex Mono',monospace;font-size:14px;margin:3px 0 14px;font-weight:500;}
+  .pass-stub .amt{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin-top:auto;}
+  .pass-stub .amt small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--gold-soft);font-weight:400;letter-spacing:.1em;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:34px;}
+  .timeline::before{
+    content:"";
+    position:absolute;left:9px;top:6px;bottom:6px;
+    width:1px;
+    background:repeating-linear-gradient(180deg, var(--line) 0 6px, transparent 6px 12px);
+  }
+  .day{position:relative;margin-bottom:36px;}
+  .day:last-child{margin-bottom:0;}
+  .day-stamp{
+    position:absolute;left:-34px;top:2px;
+    width:19px;height:19px;
+    border-radius:50%;
+    background:var(--card);
+    border:2px solid var(--coral);
+  }
+  .day-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .day-date{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--teal-deep);}
+  .day-weekday{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--coral);letter-spacing:.08em;}
+  .day-title{font-size:14.5px;color:var(--muted);}
+
+  .stub-card{
+    display:flex;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:10px;
+    box-shadow:0 6px 18px -14px rgba(11,59,55,.4);
+  }
+  .stub-card .tag{
+    width:6px;
+    flex-shrink:0;
+    background:var(--gold);
+  }
+  .stub-card.car .tag{background:var(--coral);}
+  .stub-card-full{width:100%;}
+  .car-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 24px;
+    padding:12px 18px 16px;
+    border-top:1px dashed var(--line);
+  }
+  .car-meta .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:3px;
+  }
+  .car-meta .v{font-size:12.5px;color:var(--ink);line-height:1.5;}
+  @media (max-width:520px){.car-meta{grid-template-columns:1fr;}}
+  .stub-card-body{
+    padding:14px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .stub-left .type{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .stub-card.car .stub-left .type{color:var(--coral);}
+  .stub-left .name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16.5px;color:var(--ink);margin-top:2px;}
+  .stub-left .range{font-size:12.5px;color:var(--muted);margin-top:3px;}
+  .stub-right{text-align:right;}
+  .stub-right .amt{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--teal-deep);}
+  .stub-right .amt small{font-weight:400;color:var(--muted);font-size:11px;}
+  .stub-right .conf{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);margin-top:3px;}
+
+  /* ---------- COST SUMMARY (receipt) ---------- */
+  .receipt{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 14px 34px -20px rgba(11,59,55,.4);
+    max-width:520px;
+    margin:0 auto;
+    padding:30px 30px 22px;
+    position:relative;
+  }
+  .receipt::before,.receipt::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;height:14px;
+    background-image: radial-gradient(circle 7px, var(--paper) 7px, transparent 7.5px);
+    background-size:26px 14px;
+    background-repeat:repeat-x;
+  }
+  .receipt::before{top:-7px;background-position:0 -7px;}
+  .receipt::after{bottom:-7px;background-position:0 7px;}
+  .receipt h3{
+    font-family:'Noto Serif TC',serif;
+    font-weight:900;
+    font-size:19px;
+    margin:0 0 4px;
+    color:var(--teal-deep);
+    text-align:center;
+  }
+  .receipt .sub{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    letter-spacing:.1em;
+    margin-bottom:22px;
+  }
+  .receipt-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14.5px;
+    gap:10px;
+  }
+  .receipt-row .item{color:var(--ink);}
+  .receipt-row .item .sub2{display:block;font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px;}
+  .receipt-row .amt{font-family:'IBM Plex Mono',monospace;font-weight:500;white-space:nowrap;color:var(--ink);}
+  .receipt-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:2px solid var(--teal-deep);
+  }
+  .receipt-total .lbl{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;color:var(--teal-deep);}
+  .receipt-total .val{font-family:'Fraunces',serif;font-weight:700;font-size:28px;color:var(--coral);}
+  .receipt-total .val small{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);font-weight:400;margin-right:4px;}
+
+  .receipt-foot{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.12em;
+    margin-top:20px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- LEDGER (記帳) ---------- */
+  .ledger{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 14px 34px -20px rgba(11,59,55,.4);
+    max-width:520px;
+    margin:0 auto;
+    padding:26px 26px 22px;
+  }
+  .ledger h3{
+    font-family:'Noto Serif TC',serif;
+    font-weight:900;
+    font-size:19px;
+    margin:0 0 4px;
+    color:var(--teal-deep);
+    text-align:center;
+  }
+  .ledger .sub{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    letter-spacing:.1em;
+    margin-bottom:20px;
+  }
+  .ledger-form{
+    display:grid;
+    grid-template-columns:1fr 92px 76px auto;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .ledger-form input,.ledger-form select{
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:14px;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--paper);
+    color:var(--ink);
+    min-width:0;
+  }
+  .ledger-form input:focus,.ledger-form select:focus{
+    outline:2px solid rgba(28,114,104,.35);
+    border-color:var(--teal-light);
+  }
+  .ledger-form button{
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:14px;
+    font-weight:700;
+    padding:9px 16px;
+    border:none;
+    border-radius:8px;
+    background:var(--teal);
+    color:var(--paper);
+    cursor:pointer;
+  }
+  .ledger-form button:hover{background:var(--teal-light);}
+  @media (max-width:520px){
+    .ledger-form{grid-template-columns:1fr 84px;}
+    .ledger-form input[name=item]{grid-column:1 / -1;}
+  }
+  .ledger-list{list-style:none;margin:0;padding:0;}
+  .ledger-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+    padding:8px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14px;
+  }
+  .ledger-list .l-item{flex:1;color:var(--ink);}
+  .ledger-list .l-date{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;}
+  .ledger-list .l-amt{font-family:'IBM Plex Mono',monospace;font-weight:500;white-space:nowrap;}
+  .ledger-list .l-del{
+    border:none;background:none;cursor:pointer;
+    color:var(--muted);font-size:15px;line-height:1;padding:2px 4px;
+  }
+  .ledger-list .l-del:hover{color:var(--coral);}
+  .ledger-empty{
+    text-align:center;color:var(--muted);font-size:13px;
+    padding:14px 0;border-bottom:1px dashed var(--line);
+  }
+  .ledger-totals{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:2px solid var(--teal-deep);
+  }
+  .ledger-totals .lbl{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;color:var(--teal-deep);}
+  .ledger-totals .val{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:16px;color:var(--coral);}
+  .ledger-foot{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.12em;
+    margin-top:16px;
+    text-transform:uppercase;
+  }
+
+  footer{
+    text-align:center;
+    padding:50px 24px 60px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.08em;
+  }
+  footer .stamp{
+    display:inline-block;
+    border:1.5px solid var(--coral);
+    color:var(--coral);
+    padding:6px 16px;
+    border-radius:6px;
+    transform:rotate(-3deg);
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.15em;
+    margin-bottom:16px;
+  }
+
+  @media (max-width:640px){
+    .pass{grid-template-columns:1fr;}
+    .pass-stub{flex-direction:row;width:100%;padding:14px 20px;}
+    .pass-stub::before,.pass-stub::after{top:50%;transform:translateY(-50%);left:-10px;}
+    .pass-stub .amt{margin-top:0;margin-left:auto;text-align:right;}
+    .pass-city{font-size:26px;}
+    .stub-right{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Trip Itinerary · 訂位代號 FGQ6LS</div>
+      <h1 class="display">曼谷・芭達雅<br>小珊瑚島 旅遊手冊</h1>
+      <p class="route">9 天 8 夜，從<b>桃園</b>出發，繞行<b>曼谷 → 芭達雅 → 小珊瑚島 → 曼谷</b>一圈</p>
+      <div class="hero-meta">
+        <div><div class="k">旅客</div><div class="v">GU / DIYAO</div></div>
+        <div><div class="k">出發</div><div class="v">2026.09.02</div></div>
+        <div><div class="k">返程</div><div class="v">2026.09.10</div></div>
+        <div><div class="k">航空公司</div><div class="v">星宇航空 STARLUX</div></div>
+      </div>
+    </div>
+    <div class="ribbon">
+      <span class="stop">TPE 台灣桃園</span><span class="arrow">✈</span>
+      <span class="stop">BKK 曼谷</span><span class="arrow">→</span>
+      <span class="stop">芭達雅</span><span class="arrow">→</span>
+      <span class="stop">小珊瑚島</span><span class="arrow">→</span>
+      <span class="stop">曼谷</span><span class="arrow">✈</span>
+      <span class="stop">TPE 台灣桃園</span>
+    </div>
+  </div>
+
+  <main>
+
+    <section>
+      <div class="section-head"><span class="section-num">01</span><h2>機票行程</h2></div>
+      <p class="section-sub">星宇航空 JX745 / JX746 · 直飛，經濟艙</p>
+
+      <div class="pass">
+        <div class="pass-main">
+          <div class="pass-top">
+            <div class="pass-carrier">STARLUX AIRLINES · <b>JX745</b></div>
+            <div class="pass-status">已完成預訂</div>
+          </div>
+          <div class="pass-route">
+            <div class="pass-city">TPE<span>桃園國際機場・第2航廈</span></div>
+            <div class="pass-plane"></div>
+            <div class="pass-city">BKK<span>蘇凡納布國際機場</span></div>
+          </div>
+          <div class="pass-rows">
+            <div><div class="k">日期</div><div class="v">2026/09/02（三）</div></div>
+            <div><div class="k">起飛</div><div class="v">13:55</div></div>
+            <div><div class="k">抵達</div><div class="v">16:40</div></div>
+            <div><div class="k">飛行時間</div><div class="v">3 小時 45 分</div></div>
+            <div><div class="k">機型</div><div class="v">A330-900neo</div></div>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <div>
+            <div class="k">乘客</div><div class="v">GU/DIYAO</div>
+            <div class="k">艙等</div><div class="v">經濟艙</div>
+          </div>
+          <div class="amt"><small>去程</small>去程</div>
+        </div>
+      </div>
+
+      <div class="pass">
+        <div class="pass-main">
+          <div class="pass-top">
+            <div class="pass-carrier">STARLUX AIRLINES · <b>JX746</b></div>
+            <div class="pass-status">已完成預訂</div>
+          </div>
+          <div class="pass-route">
+            <div class="pass-city">BKK<span>蘇凡納布國際機場</span></div>
+            <div class="pass-plane"></div>
+            <div class="pass-city">TPE<span>桃園國際機場・第2航廈</span></div>
+          </div>
+          <div class="pass-rows">
+            <div><div class="k">日期</div><div class="v">2026/09/10（四）</div></div>
+            <div><div class="k">起飛</div><div class="v">17:50</div></div>
+            <div><div class="k">抵達</div><div class="v">22:40</div></div>
+            <div><div class="k">飛行時間</div><div class="v">3 小時 50 分</div></div>
+            <div><div class="k">機型</div><div class="v">A330-900neo</div></div>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <div>
+            <div class="k">乘客</div><div class="v">GU/DIYAO</div>
+            <div class="k">艙等</div><div class="v">經濟艙</div>
+          </div>
+          <div class="amt"><small>回程</small>回程</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">02</span><h2>逐日行程</h2></div>
+      <p class="section-sub">住宿與租車皆已確認訂單</p>
+
+      <div class="timeline">
+
+        <div class="day">
+          <div class="day-stamp"></div>
+          <div class="day-head">
+            <span class="day-date">9/2</span><span class="day-weekday">週三</span>
+            <span class="day-title">抵達曼谷，機場取車前往芭達雅</span>
+          </div>
+          <div class="stub-card car detailed">
+            <div class="tag"></div>
+            <div class="stub-card-full">
+              <div class="stub-card-body">
+                <div class="stub-left">
+                  <div class="type">租車 Car Rental · Thai Rent a Car</div>
+                  <div class="name">豐田 Camry 或同級車型</div>
+                  <div class="range">自排・5 人座・不限里程</div>
+                </div>
+                <div class="stub-right">
+                  <div class="amt">TWD 1,249<small> 線上預付</small></div>
+                  <div class="conf">#1359047331017220</div>
+                </div>
+              </div>
+              <div class="car-meta">
+                <div>
+                  <div class="k">取車</div>
+                  <div class="v">9/2（三）17:30<br>蘇凡納布國際機場・入境大廳2樓櫃檯（7、8號出口間）</div>
+                </div>
+                <div>
+                  <div class="k">還車</div>
+                  <div class="v">9/4（五）17:30<br>蘇凡納布國際機場・客運大樓1樓貴賓停車場</div>
+                </div>
+                <div>
+                  <div class="k">保障內容</div>
+                  <div class="v">車輛碰撞・盜搶・第三人責任險（各自負額 ฿5,000）</div>
+                </div>
+                <div>
+                  <div class="k">費用說明</div>
+                  <div class="v">租車費 TWD 2,499，優惠 -TWD 1,250，稅費已含</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stub-card">
+            <div class="tag"></div>
+            <div class="stub-card-body">
+              <div class="stub-left">
+                <div class="type">住宿 1 晚</div>
+                <div class="name">芭達雅宜必思飯店</div>
+                <div class="range">9/2 入住 → 9/3 退房</div>
+              </div>
+              <div class="stub-right">
+                <div class="amt">TWD 1,009</div>
+                <div class="conf">#1359047031369940</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-stamp"></div>
+          <div class="day-head">
+            <span class="day-date">9/3</span><span class="day-weekday">週四</span>
+            <span class="day-title">搭船前往小珊瑚島（Koh Larn，又稱格蘭島）</span>
+          </div>
+          <div class="stub-card">
+            <div class="tag"></div>
+            <div class="stub-card-body">
+              <div class="stub-left">
+                <div class="type">住宿 1 晚</div>
+                <div class="name">阿米戈考拉恩飯店</div>
+                <div class="range">9/3 入住 → 9/4 退房</div>
+              </div>
+              <div class="stub-right">
+                <div class="amt">TWD 975</div>
+                <div class="conf">#1359047031387898</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-stamp"></div>
+          <div class="day-head">
+            <span class="day-date">9/4</span><span class="day-weekday">週五</span>
+            <span class="day-title">還車，返回曼谷市區長住</span>
+          </div>
+          <div class="stub-card">
+            <div class="tag"></div>
+            <div class="stub-card-body">
+              <div class="stub-left">
+                <div class="type">住宿 4 晚</div>
+                <div class="name">曼谷沙吞宜必思飯店</div>
+                <div class="range">9/4 入住 → 9/8 退房</div>
+              </div>
+              <div class="stub-right">
+                <div class="amt">TWD 5,508</div>
+                <div class="conf">#1359047058427161</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-stamp"></div>
+          <div class="day-head">
+            <span class="day-date">9/8</span><span class="day-weekday">週二</span>
+            <span class="day-title">曼谷市區續住</span>
+          </div>
+          <div class="stub-card">
+            <div class="tag"></div>
+            <div class="stub-card-body">
+              <div class="stub-left">
+                <div class="type">住宿 2 晚（續住）</div>
+                <div class="name">曼谷沙吞宜必思飯店</div>
+                <div class="range">9/8 入住 → 9/10 退房</div>
+              </div>
+              <div class="stub-right">
+                <div class="amt">TWD 2,548</div>
+                <div class="conf">#1359047058427161</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-stamp"></div>
+          <div class="day-head">
+            <span class="day-date">9/10</span><span class="day-weekday">週四</span>
+            <span class="day-title">退房，17:50 搭機返回桃園</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">03</span><h2>總花費一覽</h2></div>
+      <p class="section-sub">機票 + 住宿 + 租車 + 餐飲 + 保險證件，幣別皆為新台幣 TWD</p>
+
+      <div class="receipt">
+        <h3>旅程收支明細</h3>
+        <div class="sub">TPE — BKK — TPE · 2026/09/02–09/10</div>
+
+        <div class="receipt-row">
+          <div class="item">來回機票<span class="sub2">JX745 + JX746</span></div>
+          <div class="amt">8,644</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">芭達雅宜必思飯店<span class="sub2">9/2–9/3・1 晚</span></div>
+          <div class="amt">1,009</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">租車・Thai Rent a Car（豐田 Camry）<span class="sub2">9/2 17:30–9/4 17:30・與朋友均分（全額 1,249 ÷ 2）</span></div>
+          <div class="amt">625</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">阿米戈考拉恩飯店<span class="sub2">9/3–9/4・1 晚</span></div>
+          <div class="amt">975</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">曼谷沙吞宜必思飯店<span class="sub2">9/4–9/8・4 晚</span></div>
+          <div class="amt">5,508</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">曼谷沙吞宜必思飯店<span class="sub2">9/8–9/10・2 晚（續住）</span></div>
+          <div class="amt">2,548</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">Copper Beyond Buffet<span class="sub2">฿1,499・台幣暫以 1:1 計</span></div>
+          <div class="amt">1,499</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">旅遊不便險<span class="sub2">出發前已投保</span></div>
+          <div class="amt">558</div>
+        </div>
+        <div class="receipt-row">
+          <div class="item">國際駕照<span class="sub2">監理站辦理</span></div>
+          <div class="amt">500</div>
+        </div>
+
+        <div class="receipt-total">
+          <div class="lbl">總計</div>
+          <div class="val"><small>TWD</small>21,866</div>
+        </div>
+        <div class="receipt-foot">機票 8,644 ・ 住宿 10,040 ・ 租車/餐飲/其他 3,182</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">04</span><h2>旅途記帳</h2></div>
+      <p class="section-sub">隨手記下當地花費，資料存在這台裝置的瀏覽器裡，下次打開仍會保留</p>
+
+      <div class="ledger">
+        <h3>我的記帳本</h3>
+        <div class="sub">TAP TO ADD · SAVED ON THIS DEVICE</div>
+
+        <form class="ledger-form" id="ledgerForm">
+          <input name="item" type="text" placeholder="項目（例：夜市晚餐）" required>
+          <input name="amt" type="number" inputmode="decimal" step="0.01" min="0" placeholder="金額" required>
+          <select name="cur">
+            <option value="฿">฿ 泰銖</option>
+            <option value="NT$">NT$ 台幣</option>
+          </select>
+          <button type="submit">記一筆</button>
+        </form>
+
+        <ul class="ledger-list" id="ledgerList"></ul>
+
+        <div class="ledger-totals">
+          <div class="lbl">記帳合計</div>
+          <div class="val" id="ledgerTotal">฿0</div>
+        </div>
+        <div class="ledger-foot">資料僅存於本機瀏覽器（localStorage）</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+  (function(){
+    var KEY='202609bangkok-ledger';
+    var form=document.getElementById('ledgerForm');
+    var list=document.getElementById('ledgerList');
+    var totalEl=document.getElementById('ledgerTotal');
+
+    function load(){
+      try{ return JSON.parse(localStorage.getItem(KEY))||[]; }
+      catch(e){ return []; }
+    }
+    function save(entries){
+      try{ localStorage.setItem(KEY, JSON.stringify(entries)); }catch(e){}
+    }
+    function fmt(n){
+      return n.toLocaleString('zh-Hant-TW',{maximumFractionDigits:2});
+    }
+    function render(){
+      var entries=load();
+      list.innerHTML='';
+      if(!entries.length){
+        var empty=document.createElement('li');
+        empty.className='ledger-empty';
+        empty.textContent='還沒有記錄，出發後開始記帳吧';
+        list.appendChild(empty);
+      }
+      entries.forEach(function(en,i){
+        var li=document.createElement('li');
+        var item=document.createElement('div');
+        item.className='l-item';
+        item.textContent=en.item;
+        var date=document.createElement('span');
+        date.className='l-date';
+        date.textContent=en.date;
+        item.appendChild(date);
+        var amt=document.createElement('div');
+        amt.className='l-amt';
+        amt.textContent=en.cur+fmt(en.amt);
+        var del=document.createElement('button');
+        del.className='l-del';
+        del.type='button';
+        del.setAttribute('aria-label','刪除這筆');
+        del.textContent='✕';
+        del.addEventListener('click',function(){
+          var es=load(); es.splice(i,1); save(es); render();
+        });
+        li.appendChild(item); li.appendChild(amt); li.appendChild(del);
+        list.appendChild(li);
+      });
+      var sums={};
+      entries.forEach(function(en){ sums[en.cur]=(sums[en.cur]||0)+en.amt; });
+      var parts=Object.keys(sums).map(function(c){ return c+fmt(sums[c]); });
+      totalEl.textContent=parts.length?parts.join(' + '):'฿0';
+    }
+
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var item=form.item.value.trim();
+      var amt=parseFloat(form.amt.value);
+      if(!item||!(amt>0)) return;
+      var d=new Date();
+      var entries=load();
+      entries.push({
+        item:item,
+        amt:amt,
+        cur:form.cur.value,
+        date:(d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')
+      });
+      save(entries);
+      form.item.value=''; form.amt.value='';
+      form.item.focus();
+      render();
+    });
+
+    render();
+  })();
+  </script>
+
+  <footer>
+    <div class="stamp">BON VOYAGE</div>
+    <div>此手冊依據機票電子憑證與訂單紀錄整理，僅供行程參考</div>
+  </footer>
+
+</body>
+</html>
